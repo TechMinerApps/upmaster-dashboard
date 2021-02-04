@@ -23,7 +23,9 @@
 
       <v-menu offset-y bottom left origin="top right">
         <template v-slot:activator="{ on }">
-          <v-avatar class="cyan" size="35" v-on="on"></v-avatar>
+          <v-btn icon plain v-on="on">
+            <v-avatar class="cyan" size="35"></v-avatar>
+          </v-btn>
         </template>
         <v-list>
           <v-list-item>
@@ -38,7 +40,12 @@
           <v-divider />
 
           <v-list-item-group>
-            <v-list-item v-for="(item, index) in userSettings" :key="index">
+            <v-list-item
+              v-for="(item, index) in userSettings"
+              :key="`user-settings-${index}`"
+              :to="item.to"
+              exact
+            >
               <v-list-item-icon>
                 <v-icon v-text="item.icon"></v-icon>
               </v-list-item-icon>
@@ -58,7 +65,6 @@ export default {
   name: "NavBar",
 
   data: () => ({
-    appTitle: "Uptime Master",
     items: [
       {
         title: "Endpoints",
@@ -80,8 +86,13 @@ export default {
       email: "Steven@example.com"
     },
     userSettings: [
-      { title: "My Profile", to: "/profile", icon: "mdi-account" },
-      { title: "My setting", to: "/setting", icon: "mdi-wrench" }
+      {
+        title: "Settings",
+        to: {
+          name: "settings"
+        },
+        icon: "mdi-account"
+      }
     ]
   })
 };
