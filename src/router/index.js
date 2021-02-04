@@ -5,9 +5,26 @@ Vue.use(VueRouter);
 
 const routes = [
   // dynamic segments start with a colon
-  { path: "/endpoints", component: () => import("@/pages/Endpoints") },
-  { path: "/statuspages", component: () => import("@/pages/Statuspages") },
-  { path: "/usermanage", component: () => import("@/pages/Usermanage") }
+  {
+    path: "/",
+    name: "home",
+    component: () => import("@/pages/Index")
+  },
+  {
+    path: "/endpoints",
+    name: "endpoints",
+    component: () => import("@/pages/Endpoints")
+  },
+  {
+    path: "/users",
+    name: "users",
+    component: () => import("@/pages/Users")
+  },
+  {
+    path: "/settings",
+    name: "settings",
+    compoenent: () => import("@/pages/Settings")
+  }
 ];
 
 const router = new VueRouter({

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Usermanage",
+  name: "Users",
   data: () => ({})
 };
 </script>
