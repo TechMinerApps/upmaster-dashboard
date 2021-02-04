@@ -1,15 +1,24 @@
 <template>
-  <v-app-bar app color="white" flat>
+  <v-app-bar app color="white">
     <v-container class="py-0 fill-height">
-      <v-avatar class="mr-10" color="green" size="35"></v-avatar>
-      <div>
-        <v-tabs>
-          <v-tab v-for="(item, index) in items" :key="index" :to="item.to" text>
-            <v-icon>{{ item.icon }}</v-icon>
-            {{ item.title }}
-          </v-tab>
-        </v-tabs>
-      </div>
+      <router-link :to="{ name: 'home' }">
+        <v-app-bar-title>
+          <span class="green--text text--darken-2">Up</span>
+          <span class="green--text text--lighten-1">Master</span>
+        </v-app-bar-title>
+      </router-link>
+
+      <nav>
+        <v-btn
+          v-for="(item, index) in items"
+          :key="`navbar-nav-${index}`"
+          :to="item.to"
+          plain
+        >
+          {{ item.title }}
+        </v-btn>
+      </nav>
+
       <v-spacer />
 
       <v-menu offset-y bottom left origin="top right">
@@ -53,17 +62,16 @@ export default {
     items: [
       {
         title: "Endpoints",
-        to: "/endpoints",
+        to: {
+          name: "endpoints"
+        },
         icon: "mdi-camera-control"
       },
       {
-        title: "Status pages",
-        to: "/statuspages",
-        icon: "mdi-blur"
-      },
-      {
-        title: "User Management",
-        to: "/usermanage",
+        title: "Users",
+        to: {
+          name: "users"
+        },
         icon: "mdi-lock"
       }
     ],
@@ -79,4 +87,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+nav {
+  margin-left: 2rem;
+}
+</style>
