@@ -8,27 +8,27 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: () => import("@/pages/Index")
+    component: () => import("@/pages/Index.vue")
   },
   {
     path: "/endpoints",
     name: "endpoints",
-    component: () => import("@/pages/Endpoints")
+    component: () => import("@/pages/Endpoints.vue")
   },
   {
     path: "/users",
     name: "users",
-    component: () => import("@/pages/Users")
+    component: () => import("@/pages/Users.vue")
   },
   {
     path: "/settings",
     name: "settings",
-    compoenent: () => import("@/pages/Settings")
+    compoenent: () => import("@/pages/Settings.vue")
   }
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   routes
 });
 

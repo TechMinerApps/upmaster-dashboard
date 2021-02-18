@@ -60,42 +60,43 @@
   </v-app-bar>
 </template>
 
-<script>
-export default {
-  name: "NavBar",
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
 
-  data: () => ({
-    items: [
-      {
-        title: "Endpoints",
-        to: {
-          name: "endpoints"
-        },
-        icon: "mdi-camera-control"
+@Component
+export default class NavBar extends Vue {
+  private items: Array<object> = [
+    {
+      title: "Endpoints",
+      to: {
+        name: "endpoints"
       },
-      {
-        title: "Users",
-        to: {
-          name: "users"
-        },
-        icon: "mdi-lock"
-      }
-    ],
-    user: {
-      name: "Steven",
-      email: "Steven@example.com"
+      icon: "mdi-camera-control"
     },
-    userSettings: [
-      {
-        title: "Settings",
-        to: {
-          name: "settings"
-        },
-        icon: "mdi-account"
-      }
-    ]
-  })
-};
+    {
+      title: "Users",
+      to: {
+        name: "users"
+      },
+      icon: "mdi-lock"
+    }
+  ];
+
+  private user = {
+    name: "Steven",
+    email: "Steven@example.com"
+  };
+
+  private userSettings: Array<object> = [
+    {
+      title: "Settings",
+      to: {
+        name: "settings"
+      },
+      icon: "mdi-account"
+    }
+  ];
+}
 </script>
 
 <style scoped lang="scss">

@@ -44,39 +44,39 @@
   </v-navigation-drawer>
 </template>
 
-<script>
-export default {
-  name: "NavBar",
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
 
-  data: () => ({
-    appTitle: "Uptime Master",
-    items: [
-      {
-        title: "Endpoints",
-        to: "/endpoints",
-        icon: "mdi-camera-control"
-      },
-      {
-        title: "Status pages",
-        to: "/statuspages",
-        icon: "mdi-blur"
-      },
-      {
-        title: "User Management",
-        to: "/usermanage",
-        icon: "mdi-lock"
-      }
-    ],
-    user: {
-      name: "Steven",
-      email: "Steven@example.com"
+@Component
+export default class NavDrawer extends Vue {
+  private appTitle = "Uptime Master";
+  private items: Array<object> = [
+    {
+      title: "Endpoints",
+      to: "/endpoints",
+      icon: "mdi-camera-control"
     },
-    userSettings: [
-      { title: "My Profile", to: "/profile", icon: "mdi-account" },
-      { title: "My setting", to: "/setting", icon: "mdi-wrench" }
-    ]
-  })
-};
+    {
+      title: "Status pages",
+      to: "/statuspages",
+      icon: "mdi-blur"
+    },
+    {
+      title: "User Management",
+      to: "/usermanage",
+      icon: "mdi-lock"
+    }
+  ];
+  private user = {
+    name: "Steven",
+    email: "Steven@example.com"
+  };
+
+  private userSettings: Array<object> = [
+    { title: "My Profile", to: "/profile", icon: "mdi-account" },
+    { title: "My setting", to: "/setting", icon: "mdi-wrench" }
+  ];
+}
 </script>
 
 <style scoped></style>

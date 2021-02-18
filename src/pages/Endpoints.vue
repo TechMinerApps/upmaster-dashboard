@@ -2,9 +2,9 @@
   <div>Endpoints</div>
 </template>
 
-<script>
-export default {
-  name: "Endpoints",
-  data: () => ({})
-};
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component
+export default class Endpoints extends Vue {}
 </script>

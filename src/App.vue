@@ -8,12 +8,13 @@
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
 import NavBar from "./components/NavBar.vue";
 import NavDrawer from "./components/NavDrawer.vue";
-export default {
-  components: { NavBar, NavDrawer },
-  name: "App",
-  data: () => ({})
-};
+
+@Component({
+  components: { NavBar, NavDrawer }
+})
+export default class App extends Vue {}
 </script>
