@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <nav-drawer />
-    <nav-bar />
+    <nav-drawer v-model="isNavbarOpened" />
+    <nav-bar v-on:toggle-navbar="toggleNavbar" />
     <v-main class="grey lighten-3">
       <router-view />
     </v-main>
@@ -16,5 +16,11 @@ import NavDrawer from "./components/NavDrawer.vue";
 @Component({
   components: { NavBar, NavDrawer }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private isNavbarOpened: boolean = false;
+
+  toggleNavbar(): void {
+    this.isNavbarOpened = !this.isNavbarOpened;
+  }
+}
 </script>

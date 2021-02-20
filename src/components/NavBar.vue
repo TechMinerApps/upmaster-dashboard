@@ -1,14 +1,22 @@
 <template>
   <v-app-bar app color="white">
     <v-container class="py-0 fill-height">
-      <router-link :to="{ name: 'home' }">
-        <v-app-bar-title>
-          <span class="green--text text--darken-2">Up</span>
-          <span class="green--text text--lighten-1">Master</span>
+      <v-app-bar-nav-icon
+        color="green"
+        class="app-bar--icon d-md-none"
+        @click.stop="$emit('toggle-navbar')"
+      />
+
+      <v-spacer class="d-md-none" />
+
+      <router-link :to="{ name: 'home' }" class="app-bar--title-wrapper">
+        <v-app-bar-title class="green--text app-bar--title">
+          <span class="text--darken-2">Up</span>
+          <span class="text--lighten-1">Master</span>
         </v-app-bar-title>
       </router-link>
 
-      <nav>
+      <nav class="d-none d-md-block">
         <v-btn
           v-for="(item, index) in items"
           :key="`navbar-nav-${index}`"
@@ -100,7 +108,13 @@ export default class NavBar extends Vue {
 </script>
 
 <style scoped lang="scss">
-nav {
-  margin-left: 2rem;
+.app-bar {
+  &--icon {
+    margin-right: 1rem;
+  }
+
+  &--title-wrapper {
+    text-decoration: none;
+  }
 }
 </style>

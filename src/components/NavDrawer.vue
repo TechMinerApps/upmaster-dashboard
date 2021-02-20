@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer app>
+  <v-navigation-drawer app v-model="navbarStatus">
     <v-list-item class="mt-5">
       <v-avatar class="cyan"></v-avatar>
     </v-list-item>
@@ -12,7 +12,7 @@
       </v-list-item-content>
     </v-list-item>
 
-    <v-divider></v-divider>
+    <v-divider />
 
     <v-list dense nav>
       <v-list-item
@@ -31,24 +31,24 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-    <!-- <template v-slot:append>
-      <v-list-item>
-        <v-list-item-avatar>
-          <v-avatar class="mr-10" color="green" size="35"></v-avatar>
-        </v-list-item-avatar>
-        <v-list-item-content>
-          <v-list-item-title>{{ appTitle }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </template> -->
   </v-navigation-drawer>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Model, Vue } from "vue-property-decorator";
 
 @Component
 export default class NavDrawer extends Vue {
+  @Model("set-navbar") isOpened!: boolean;
+
+  get navbarStatus() {
+    return this.isOpened;
+  }
+
+  set navbarStatus(value: boolean) {
+    this.$emit("set-navbar", value);
+  }
+
   private appTitle = "Uptime Master";
   private items: Array<object> = [
     {
