@@ -9,7 +9,7 @@
 
       <v-spacer class="d-md-none" />
 
-      <router-link :to="{ name: 'home' }" class="app-bar--title-wrapper">
+      <router-link :to="{ name: 'home' }" class="app-bar--title-wrapper mr-8">
         <v-app-bar-title class="green--text app-bar--title">
           <span class="text--darken-2">Up</span>
           <span class="text--lighten-1">Master</span>
