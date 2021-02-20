@@ -2,7 +2,7 @@ interface Base {
   readonly id: number;
 }
 
-interface Alert extends Base {
+export interface Alert extends Base {
   alert_channal?: AlertChannal;
   alert_channal_id: number;
   status: number;
@@ -10,7 +10,7 @@ interface Alert extends Base {
   user_id: number;
 }
 
-interface AlertChannal extends Base {
+export interface AlertChannal extends Base {
   alerts?: Array<Alert>;
   user?: User;
   user_id: number;
@@ -19,7 +19,7 @@ interface AlertChannal extends Base {
   config: string;
 }
 
-interface Endpoint extends Base {
+export interface Endpoint extends Base {
   name: string;
   user?: User;
   user_id: number;
@@ -30,7 +30,7 @@ interface Endpoint extends Base {
   alerts?: Array<Alert>;
 }
 
-interface User extends Base {
+export interface User extends Base {
   email: string;
   username: string;
   password: string;
